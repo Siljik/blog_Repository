@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-o2ur=mfcychs1mz&90ed8&v_#wk02va3^4&qwd(ck1p$u-q#0_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blog',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -75,11 +77,16 @@ WSGI_APPLICATION = 'blog_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'djongo',
+        "CLIENT": {
+"name": "blogdb",
+"host": "mongodb+srv://silji:silji123@cluster0.nicsj7i.mongodb.net/?retryWrites=true&w=majority",
+"username": "silji",
+"password": "silji123",
+"authMechanism": "SCRAM-SHA-1",
+},
 }
-
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
